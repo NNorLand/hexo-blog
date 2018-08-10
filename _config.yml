@@ -126,3 +126,5 @@ deploy:
   host: 139.199.34.244
   user: nnorland
   root: /usr/share/nginx/html
+  ignore_errors: true
+  verbose: false
