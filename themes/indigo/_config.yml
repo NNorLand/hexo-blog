@@ -25,6 +25,10 @@ menu:
     text: github
     url: https://github.com/NNorland
     target: _blank
+  gamepad:
+    text: 巫师3地图
+    url: http://witcher3map.liujiaan.top
+    target: _blank
   link:
     text: 关 于
     url: /about
