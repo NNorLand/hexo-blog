@@ -29,6 +29,10 @@ menu:
     text: 巫师3地图
     url: http://witcher3map.liujiaan.top
     target: _blank
+  shopping-cart:
+    text: 优惠券查询
+    url: http://go.liujiaan.top
+    target: _blank
   link:
     text: 关 于
     url: /about
