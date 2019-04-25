@@ -13,7 +13,7 @@ tags: [raspberrypi,nfc]
 
 <!--more-->
 
-![pn532](https://ohuxfnzjy.qnssl.com/image/hexo/2017/09/640760-20160809011418434-760565530.png)
+![pn532](http://oss.liujiaan.top/image/hexo/2017/09/640760-20160809011418434-760565530.png)
 <a id="libnfc_conf" href="javascript:" name=“libnfc_conf”></a>   
 > 参考网站: 
 参考资料附录&相关链接：  
@@ -43,7 +43,7 @@ sudo apt-get install autoconf libusb-dev libtool libpcsclite-dev
 
 ## 树莓派与PN532连接
 树莓派3接口图
-![树莓派3GPIO图](https://ohuxfnzjy.qnssl.com/image/hexo/2017/09/2016042406444998.jpg)  
+![树莓派3GPIO图](http://oss.liujiaan.top/image/hexo/2017/09/2016042406444998.jpg)  
 
 我用的I2C接口,接线方式如下。  
 > 04 <-> VCC   

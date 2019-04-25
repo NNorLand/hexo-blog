@@ -29,34 +29,34 @@ coding时不时有很多问题,已放弃webIDE,回归github.将博客代码存�
 * 项目类型选择“私有”
 * 勾选“使用README.md初始化项目”
 
-![创建新项目]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/1%20%285%29.png)
+![创建新项目]( http://oss.liujiaan.top/image/hexo/2016/07/1%20%285%29.png)
 
 创建好项目后，通过导航栏到IDE界面，点击新建工作空间
 
-![新建工作空间]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/1%20%286%29.png)
+![新建工作空间]( http://oss.liujiaan.top/image/hexo/2016/07/1%20%286%29.png)
 
 随后，单击“同步仓库”，等待同步仓库完成。
 
-![同步仓库]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/1%20%287%29.png)
+![同步仓库]( http://oss.liujiaan.top/image/hexo/2016/07/1%20%287%29.png)
 
 接着，点开我们刚刚创建的项目。会提示配置界面。webIDE是收费的，收取coding的虚拟货币--[码币](https://coding.net/help/doc/account/shop.html)。但是收费很良心，而且有各种途径能够赚取。用来写博客的话，选最低配置就可以。基本上和免费差不多。
 
-![收费]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/1%20%284%29.png)
+![收费]( http://oss.liujiaan.top/image/hexo/2016/07/1%20%284%29.png)
 
-![赚码币]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/1%20%281%29.png)
+![赚码币]( http://oss.liujiaan.top/image/hexo/2016/07/1%20%281%29.png)
 [如何获取码币](https://coding.net/help/doc/account/shop.html#section-2)
 
 回到主题，创建完webIDE，点击打开，等待webIDE载入完成。就能看到界面了。
 全屏正有种带GUI的Linux的既视感~~而且terminal默认安装好了zsh和[oh-my-zsh](https://zhuanlan.zhihu.com/p/19556676)，算是附带小惊喜吧。
 调整一下选项。
 
-![webIDE]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/1%20%283%29.png)
+![webIDE]( http://oss.liujiaan.top/image/hexo/2016/07/1%20%283%29.png)
 
 **有没有超酷！**装逼利器，而且巨方便。
 
 Hexo是基于Nodejs的，所以我们将运行环境切换为Nodejs。
 
-![切换环境]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/1%20%282%29.png)
+![切换环境]( http://oss.liujiaan.top/image/hexo/2016/07/1%20%282%29.png)
 
 # 二、正式开始
 

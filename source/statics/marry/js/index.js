@@ -26,13 +26,13 @@ $(document).ready(function () {
         music: [{
             title: '',
             author: '',
-            url: 'https://ohuxfnzjy.qnssl.com/audio/hexo/2016/Bruno%20Mars%20-%20Marry%20You.mp3',
-            pic: 'https://ohuxfnzjy.qnssl.com/image/hexo/Preparation.jpg'
+            url: 'http://oss.liujiaan.top/audio/hexo/2016/Bruno%20Mars%20-%20Marry%20You.mp3',
+            pic: 'http://oss.liujiaan.top/image/hexo/Preparation.jpg'
         }, {
             title: '',
             author: '',
-            url: 'https://ohuxfnzjy.qnssl.com/audio/hexo/2016/Stewart%20Mac%20-%20I%20Love%20You.mp3',
-            pic: 'https://ohuxfnzjy.qnssl.com/image/hexo/Preparation.jpg'
+            url: 'http://oss.liujiaan.top/audio/hexo/2016/Stewart%20Mac%20-%20I%20Love%20You.mp3',
+            pic: 'http://oss.liujiaan.top/image/hexo/Preparation.jpg'
         }]
     });
     ap.volume(0.2);//音量

@@ -28,7 +28,7 @@ $ git commit -m "hello world"
 比如,下面的命令显示上次发布之后的变动,每个commit占据一行,你只要看首行,就知道某次commit的目的.
 > $ git log <last tag> HEAD --pretty=formate:%s
 
-![git commit message]( https://ohuxfnzjy.qnssl.com/image/hexo/2016/07/26/bg2016010604.png)
+![git commit message]( http://oss.liujiaan.top/image/hexo/2016/07/26/bg2016010604.png)
 
 2. **可以过滤某些commit(比如文档改动),以便于快速查找信息.**<br>
 比如,下面的命令仅显示本次发布新增加的功能.
