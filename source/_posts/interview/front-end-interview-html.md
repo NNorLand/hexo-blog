@@ -228,3 +228,13 @@ document.body.onclick = function (event) {
 > 参考链接[https://harttle.land/2015/10/01/javascript-dom-api.html](https://harttle.land/2015/10/01/javascript-dom-api.html)
 
 ## 页面重绘和重排
+var bstyle = document.body.style; // cache
+bstyle.padding = "20px"; // 重排+重绘
+bstyle.border = "10px solid red"; // 另一次重排+重绘
+bstyle.color = "blue"; // 没有尺寸变化，只重绘
+bstyle.backgroundColor = "#fad"; // 重绘
+bstyle.fontSize = "2em"; // 重排+重绘
+// 新的DOM节点 - 重排+重绘
+document.body.appendChild(document.createTextNode('dude!'));
+
+restyle（不影响几何形状的渲染树变化）、reflow（重排，影响布局）和repaint（重绘）。
