@@ -1,7 +1,7 @@
 ---
-title: front-end-interview-network
+title: 前端面试之计算机网络
 categories:
-  - uncategorized
+  - interview
 date: 2019-07-23 22:37:59
 updated: 2019-07-23 22:37:59
 tags:

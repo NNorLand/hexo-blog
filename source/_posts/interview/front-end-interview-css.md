@@ -1,26 +1,39 @@
 ---
 title: 前端面试总结CSS篇
 categories:
-  - FrontEnd
-  - CSS
+  - interview
 date: 2019-07-23 22:00:54
 updated: 2019-07-23 22:00:54
 tags: [CSS]
 ---
+
 ## position属性
+
 ### static
+
 该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 top, right, bottom, left 和 z-index 属性无效。
+
 ### relative
+
 该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-*-group, table-row, table-column, table-cell, table-caption 元素无效。
+
 ### absolute
+
 不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。
+
 ### fixed
+
 不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。fixed 属性会创建新的层叠上下文。当元素祖先的 transform  属性非 none 时，容器由视口改为该祖先。
-### sticky 
+
+### sticky
+
 盒位置根据正常流计算(这称为正常流动中的位置)，然后相对于该元素在流中的 flow root（BFC）和 containing block（最近的块级祖先元素）定位。在所有情况下（即便被定位元素为 table 时），该元素定位均不对后续元素造成影响。当元素 B 被粘性定位时，后续元素的位置仍按照 B 未定位时的位置来确定。position: sticky 对 table 元素的效果与 position: relative 相同。
 [MDN position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)
+
 ## display属性
+
 display 属性使用关键字取值来指定. 关键字取值被分为六类:
+
 ```html
 <display-outside>
 这些关键字指定了元素的外部显示类型，实际上就是其在流式布局中的角色。
@@ -35,7 +48,9 @@ display 属性使用关键字取值来指定. 关键字取值被分为六类:
 <display-legacy>
 CSS 2 对于 display 属性使用单关键字语法, 对于相同布局模式的 block 级和 inline 级变体需要使用单独的关键字。
 ```
+
 全部取值如下
+
 ```css
 /* <display-outside> values */
 display: block;
@@ -94,15 +109,23 @@ display: inherit;
 display: initial;
 display: unset;
 ```
+
 [MDN display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display)
+
 ## BFC
+
 [MDN BFC](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
 
 ## CSS选择器
+
 标签名称，属性值
+
 ### 类选择器（Class selectors)
+
 ### ID选择器（ID selectors）
+
 ### 伪类选择器（Pseudo-classes selectors）
+
 :link
 :visited
 :active
@@ -119,16 +142,19 @@ display: unset;
 :checked
 :enabled
 :disabled
+
 ### 基于关系的选择器
+
 A E	元素A的任一后代元素E (后代节点指A的子节点，子节点的子节点，以此类推)
 A > E	元素A的任一子元素E(也就是直系后代)
 E:first-child	任一是其父母结点的第一个子节点的元素E
 B + E	元素B的任一下一个兄弟元素E
 B ~ E	B元素后面的拥有共同父元素的兄弟元素E
+
 [MDN 选择器](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_started/Selectors)
 
-
 ## 实现垂直居中
+
 1. 绝对定位top: 50%;margin-top 负一半
 2. 绝对定位top:50%; transform: translate(0, -50%);
 3. 绝对定位，bottom、top 相同，margin: auto;
@@ -142,7 +168,9 @@ B ~ E	B元素后面的拥有共同父元素的兄弟元素E
 11. grid 布局 place-items: center;
 
 ## CSS3特性
+
 ### 选择器
+
 [attribute^=value]: 选择某元素attribute属性是以value开头的。  
 [attribute$=value]: 选择某元素attribute属性是以value结尾的。  
 [attribute*=value]: 选择某元素attribute属性包含value字符串的。  
@@ -151,6 +179,7 @@ E:nth-last-child(n): 选择属于其父元素的倒数第n个子元素的每个E
 E:disabled: 选择每个禁用的E元素。  
 E:checked: 选择每个被选中的E元素。  
 ...
+
 ### Transition,Transform和Animation
 
 这三个特性是CSS3新增的和动画相关的特性。
@@ -164,6 +193,7 @@ rotate(angle): 定义2D旋转，在参数中规定角度。
 Animation让CSS拥有了可以制作动画的功能。使用CSS3的Animation制作动画我们可以省去复杂的js代码。
 
 ### 背景
+
 CSS3新增了几个关于背景的属性，分别是background-clip、background-origin、background-size和background-break
 
 background-clip: border-box; 背景从border开始显示

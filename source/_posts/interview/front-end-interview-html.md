@@ -1,22 +1,27 @@
 ---
-title: 前端面试题总结
+title: 前端面试之HTML
 categories:
-  - FrontEnd
-  - DOM
+  - interview
 date: 2019-07-23 21:13:22
 updated: 2019-07-23 21:13:22
 tags: [HTML]
 ---
 ## DOM元素操作方法
+
 ### DOM 创建
+
 DOM节点创建最常用的便是document.createElement和document.createTextNode方法：
-```js
+
+```javascript
 var el1 = document.createElement('div');
 var el2 = document.createElement('input');
 var node = document.createTextNode('hello world!');
 ```
+
 ### DOM 查询
+
 元素查询的API返回的的结果是DOM节点或者DOM节点的列表。document提供了两种Query方法：
+
 ```js
 // 返回当前文档中第一个类名为 "myclass" 的元素
 var el = document.querySelector(".myclass");
@@ -31,7 +36,9 @@ var els = document.getElementsByTagName('td');
 var els = document.getElementsByName('name');
 
 ```
+
 Element也提供了很多相对于元素的DOM导航方法：
+
 ```js
 // 获取父元素、父节点
 var parent = ele.parentElement;

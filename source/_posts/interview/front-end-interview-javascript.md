@@ -1,7 +1,7 @@
 ---
 title: 前端面试之JavaScript
 categories:
-  - JavaScript
+  - interview
 date: 2019-07-23 22:48:58
 updated: 2019-07-23 22:48:58
 tags:
