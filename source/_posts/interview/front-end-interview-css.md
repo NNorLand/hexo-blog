@@ -112,7 +112,18 @@ display: unset;
 
 [MDN display](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display)
 
-## BFC
+## BFC （清除浮动和解决外边距塌陷）
+
+
+BFC(Block Formatting Contexts)直译为"块级格式化上下文"。Block Formatting Contexts就是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面的元素，反之也是如此。如何产生BFC？
+> 浮动元素,float的值不为none。  
+overflow的值不为visible。  
+绝对定位元素,position的值不为relative和static。  
+display的值为table-cell, table-caption, inline-block中的任何一个。  
+display的值flow-root  
+...
+
+那BFC一般有什么用呢？比如常见的多栏布局，结合块级别元素浮动，里面的元素则是在一个相对隔离的环境里运行。
 
 [MDN BFC](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
 
@@ -204,7 +215,7 @@ background-clip: no-clip; 默认属性，等同于border-box
 background-size: contain; 缩小图片以适合元素（维持像素长宽比）
 background-size: cover; 扩展元素以填补元素（维持像素长宽比）
 background-size: 100px 100px; 缩小图片至指定的大小
-background-size: 50% 100%; 缩小图片至指定的大小，百分比是相对包 含元素的尺寸
+background-size: 50% 100%; 缩小图片至指定的大小，百分比是相对包含元素的尺寸
 
 background-break: continuous; 默认值。忽略盒之间的距离（也就是像元素没有分成多个盒子，依然是一个整体一样）
 background-break: bounding-box; 把盒之间的距离计算在内；
