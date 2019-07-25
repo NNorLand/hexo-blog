@@ -225,6 +225,15 @@ ES6 则是明确将空位转为undefined。
 
 ## 闭包
 
+### 形成条件
+
+1. 函数嵌套
+2. 内部函数引用外部函数的局部变量
+
+### 优点
+
+延长外部函数的局部变量的生命周期，因此容易造成内存泄露
+
 ## 值传递 引用传递
 
 ## 深拷贝浅拷贝
@@ -321,20 +330,20 @@ function debounce(func, delay) {
     };
 };
 function throttle(fn, threshhold) {
- var timeout
- var start = new Date;
- var threshhold = threshhold || 160
- return function () {
+  var timeout
+  var start = new Date;
+  var threshhold = threshhold || 160
+  return function () {
 
- var context = this, args = arguments, curr = new Date() - 0
- 
- clearTimeout(timeout)//总是干掉事件回调
- if(curr - start >= threshhold){ 
-     console.log("now", curr, curr - start)//注意这里相减的结果，都差不多是160左右
-     fn.apply(context, args) //只执行一部分方法，这些方法是在某个时间段内执行一次
-     start = curr
- }else{
- //让方法在脱离事件后也能执行一次
+  var context = this, args = arguments, curr = new Date() - 0
+  
+  clearTimeout(timeout)//总是干掉事件回调
+  if(curr - start >= threshhold){ 
+      console.log("now", curr, curr - start)//注意这里相减的结果，都差不多是160左右
+      fn.apply(context, args) //只执行一部分方法，这些方法是在某个时间段内执行一次
+      start = curr
+  }else{
+  //让方法在脱离事件后也能执行一次
      timeout = setTimeout(function(){
         fn.apply(context, args) 
      }, threshhold);
@@ -342,7 +351,26 @@ function throttle(fn, threshhold) {
   }
 }
 ```
+
 setTimeout clear
+
 ## 逆时针打印二维数组
 
+## js的宏任务/微任务
 
+### 宏任务
+
+分类：setTimeout setInterval requestAnimationFrame
+
+1. 宏任务所处的队列，就是宏任务队列
+2. 宏任务队列中只有一个任务：执行主线程上的js代码
+3. 宏任务队列可以有多个
+4. 当宏任务队列中的任务全部执行完之后会查看微任务队列，如果有，执行微任务队列，如果没有，查看是否有宏任务队列
+
+### 微任务
+
+分类： new Promise().then(回调) process.nextTick()
+
+1. 微任务所处的队列就是微任务队列
+2. 只有一个微任务队列
+3. 在上一个宏任务队列执行完毕后如果有微任务队列就会执行微任务队列中的所有任务
