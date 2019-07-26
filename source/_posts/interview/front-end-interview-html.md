@@ -196,13 +196,13 @@ dom标准事件流的触发的先后顺序为：先捕获再冒泡，即当触�
 
 ### 事件委托
 
-委托在JQuery中已经得到了实现，即通过$(selector).on(event,childSelector,data,function,map)实现委托，一般用于动态生成的元素，当然JQuery也是通过原声的js去实现的，下面举一个简单的栗子，通过js实现通过parent元素给child元素注册click事件
+委托在JQuery中已经得到了实现，即通过$(selector).on(event,childSelector,data,function,map)实现委托，一般用于动态生成的元素，当然JQuery也是通过原生的js去实现的，下面举一个简单的栗子，通过js实现通过parent元素给child元素注册click事件
 
 ```js
 var parent = document.getElementById("parent");
 var child = document.getElementById("child");
 parent.onclick = function(e){
-  if(e.target.id == "child"){
+  if (e.target.id == "child") {
     console.log("您点击了child元素")
   }
 }

@@ -6,9 +6,11 @@ date: 2019-07-23 22:46:10
 updated: 2019-07-23 22:46:10
 tags:
 ---
+
 ## 树的广度和深度优先遍历
 
-## 二叉树前序遍历思路
+广度优先：先遍历左子树，再遍历右子树  
+深度优先：从上到下，从左到右
 
 ## 二叉树遍历思路
 
@@ -33,6 +35,7 @@ class BinaryTree {
             console.error('请输入Number类型或者Array类型的参数')
         }
     }
+
     insert(key) {
         //添加一个新子树
         let newNode = this.Node(key);
@@ -125,8 +128,6 @@ class BinaryTree {
             return node.key;
         }
     }
-
-
 
     search(key) {
         let searchNode = (node, key) => {

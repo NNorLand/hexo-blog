@@ -8,6 +8,16 @@ tags:
 ---
 ## call apply bind arguments
 
+遍历arguments
+
+```js
+  for(var i=0; i<arguments.length; i++){}
+
+  for(key in arguments){
+    console.log(key);
+  };
+```
+
 **this 永远指向最后调用它的那个对象**
 apply、call、bind 都是可以改变 this 的指向的，但是这三个函数稍有不同。
 
@@ -44,6 +54,30 @@ Symbol 作为属性名，该属性不会出现在for...in、for...of循环中，
 另一个新的 API，Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。
 Symbol.for()，Symbol.keyFor()
 
+## JS中判断数据类型的方法有几种
+
+最常见的判断方法：typeof
+
+判断已知对象类型的方法： instanceof
+
+根据对象的constructor判断： constructor
+
+```js
+Object.prototype.toString.call('') ;   // [object String]
+Object.prototype.toString.call(1) ;    // [object Number]
+Object.prototype.toString.call(true) ; // [object Boolean]
+Object.prototype.toString.call(Symbol()); //[object Symbol]
+Object.prototype.toString.call(undefined) ; // [object Undefined]
+Object.prototype.toString.call(null) ; // [object Null]
+Object.prototype.toString.call(new Function()) ; // [object Function]
+Object.prototype.toString.call(new Date()) ; // [object Date]
+Object.prototype.toString.call([]) ; // [object Array]
+Object.prototype.toString.call(new RegExp()) ; // [object RegExp]
+Object.prototype.toString.call(new Error()) ; // [object Error]
+Object.prototype.toString.call(document) ; // [object HTMLDocument]
+Object.prototype.toString.call(window) ; //[object global] window 是全局对象 global 的引用
+```
+
 ## 数组去重
 
 ```js
@@ -79,12 +113,12 @@ NodeList 对象
 
 下面的这些方法会改变调用它们的对象自身的值：
 
-Array.prototype.copyWithin()
-在数组内部，将一段元素序列拷贝到另一段元素序列上，覆盖原有的值。
-Array.prototype.fill() 
-将数组中指定区间的所有元素的值，都替换成某个固定的值。
-Array.prototype.pop()
-删除数组的最后一个元素，并返回这个元素。
+Array.prototype.copyWithin()  
+在数组内部，将一段元素序列拷贝到另一段元素序列上，覆盖原有的值。  
+Array.prototype.fill()  
+将数组中指定区间的所有元素的值，都替换成某个固定的值。  
+Array.prototype.pop()  
+删除数组的最后一个元素，并返回这个元素。  
 Array.prototype.push()
 在数组的末尾增加一个或多个元素，并返回数组的新长度。
 Array.prototype.reverse()
@@ -307,8 +341,6 @@ function strip(num, precision = 12) {
 
 ## stream
 
-## event loop
-
 ## http模块如何接收请求
 
 ## promisify
@@ -334,19 +366,18 @@ function throttle(fn, threshhold) {
   var start = new Date;
   var threshhold = threshhold || 160
   return function () {
+    var context = this, args = arguments, curr = new Date() - 0
 
-  var context = this, args = arguments, curr = new Date() - 0
-  
-  clearTimeout(timeout)//总是干掉事件回调
-  if(curr - start >= threshhold){ 
-      console.log("now", curr, curr - start)//注意这里相减的结果，都差不多是160左右
-      fn.apply(context, args) //只执行一部分方法，这些方法是在某个时间段内执行一次
-      start = curr
-  }else{
-  //让方法在脱离事件后也能执行一次
-     timeout = setTimeout(function(){
-        fn.apply(context, args) 
-     }, threshhold);
+    clearTimeout(timeout)//总是干掉事件回调
+    if(curr - start >= threshhold) {
+        console.log("now", curr, curr - start)//注意这里相减的结果，都差不多是160左右
+        fn.apply(context, args) //只执行一部分方法，这些方法是在某个时间段内执行一次
+        start = curr
+    } else {
+    //让方法在脱离事件后也能执行一次
+      timeout = setTimeout(function(){
+          fn.apply(context, args)
+      }, threshhold);
     }
   }
 }
@@ -374,3 +405,74 @@ setTimeout clear
 1. 微任务所处的队列就是微任务队列
 2. 只有一个微任务队列
 3. 在上一个宏任务队列执行完毕后如果有微任务队列就会执行微任务队列中的所有任务
+
+## js每隔一秒打印1,2,3,4,5
+
+```js
+   for (var i=0; i<5; i++) {
+      (function (i) {
+        setTimeout(() => console.log(i), 1000*i)
+      })(i)
+    }
+```
+
+```js
+   for (let i=0; i<5; i++) {
+      (function () {
+        setTimeout(() => console.log(i), 1000*i)
+      })()
+    }
+```
+
+```js
+   var out = (i) => {
+      setTimeout (() => console.log(i), 1000*i)
+    }
+    for (var i=0; i<5; i++) {
+      out(i)
+    }
+```
+
+```js
+    var arr = []
+    var output = (i) => new Promise(res => {
+      setTimeout(()=>{
+        console.log(i)
+        res()
+      }, 1000*i)
+    })
+    for (var i=0; i<5; i++) {
+      arr.push(output(i))
+    }
+    Promise.all(arr).then(()=> console.log(5))
+```
+
+```js
+   var sleep = (time) => new Promise (res => setTimeout(res, time));
+    (async function () {
+      for (let i=0; i<5; i++) {
+        await sleep(1000)
+        console.log(i)
+      }
+    })()
+```
+
+## 性能监控
+
+performance api
+
+## 脚本错误收集
+
+window.onerror
+
+### promise的错误处理
+
+```js
+window.addEventListener("unhandledrejection", function(e){
+  // Event新增属性
+  // @prop {Promise} promise - 状态为rejected的Promise实例
+  // @prop {String|Object} reason - 异常信息或rejected的内容
+  // 会阻止异常继续抛出，不让Uncaught(in promise) Error产生
+  e.preventDefault()
+})
+```

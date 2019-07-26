@@ -11,8 +11,8 @@ tags: [JavaScript, LeetCode]
 
 ![杨辉三角](http://oss.liujiaan.top/image/hexo/PascalTriangleAnimated2.gif)
 
-
 ## 给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
+
 在杨辉三角中，每个数是它左上方和右上方的数的和。
 
 示例:
@@ -28,6 +28,7 @@ tags: [JavaScript, LeetCode]
  [1,4,6,4,1]
 ]
 ```
+
 ```js
 /**
  * @param {number} numRows
@@ -47,19 +48,21 @@ var generate = function(numRows) {
         }
         result.push(subArr);
     }
-    
+
     return result;
 
 };
 ```
 
-## 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
+## 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行
 
 示例：
-```
+
+```text
 输入: 3
 输出: [1,3,3,1]
 ```
+
 ```javascript
 /**
  * @param {number} rowIndex
@@ -86,6 +89,7 @@ var getRow = function (rowIndex) {
 
 // console.log('getRow(3)', getRow(5))
 ```
+
 ```javascript
 /**
  * @param {number} rowIndex
@@ -97,8 +101,7 @@ var getRow = function(rowIndex) {
   let preRow = getRow(rowIndex - 1)
   let result = []  
   for (let i = 0; i <= rowIndex; i++) {
-    if (i === 0) result[i] = preRow[0]
-    else if (i === rowIndex) result[i] = preRow[i - 1]
+    if (i === 0 || i === rowIndex) result[i] = 1;
     else result[i] = preRow[i - 1] + preRow[i]
   }
   return result

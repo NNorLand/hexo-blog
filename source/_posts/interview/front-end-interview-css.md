@@ -114,7 +114,6 @@ display: unset;
 
 ## BFC （清除浮动和解决外边距塌陷）
 
-
 BFC(Block Formatting Contexts)直译为"块级格式化上下文"。Block Formatting Contexts就是页面上的一个隔离的渲染区域，容器里面的子元素不会在布局上影响到外面的元素，反之也是如此。如何产生BFC？
 > 浮动元素,float的值不为none。  
 overflow的值不为visible。  
@@ -156,11 +155,11 @@ display的值flow-root
 
 ### 基于关系的选择器
 
-A E	元素A的任一后代元素E (后代节点指A的子节点，子节点的子节点，以此类推)
-A > E	元素A的任一子元素E(也就是直系后代)
-E:first-child	任一是其父母结点的第一个子节点的元素E
-B + E	元素B的任一下一个兄弟元素E
-B ~ E	B元素后面的拥有共同父元素的兄弟元素E
+`A E`元素A的任一后代元素E (后代节点指A的子节点，子节点的子节点，以此类推)
+`A > E`元素A的任一子元素E(也就是直系后代)
+`E:first-child`任一是其父母结点的第一个子节点的元素E
+`B + E`元素B的任一下一个兄弟元素E
+`B ~ E`B元素后面的拥有共同父元素的兄弟元素E
 
 [MDN 选择器](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_started/Selectors)
 
