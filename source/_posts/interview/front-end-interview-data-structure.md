@@ -178,13 +178,13 @@ class BinaryTree {
                 } else if (node.right === null) {
                     node = node.left;
                     return node;
-                } 
+                }
 
                 if (node.left !== null && node.right !== null) {
                     let aux = findMinNode(node.right);
                     node.key = aux;
                     node.right = removeNode(node.right, aux.key);
-                    return node;        
+                    return node;
                 }
             }
         }

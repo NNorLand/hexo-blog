@@ -284,7 +284,7 @@ function deepClone(initalObj, finalObj) {
     }
     if (typeof prop === 'object') {
       obj[i] = (prop.constructor === Array) ? [] : {};
-      arguments.callee(prop, obj[i]);
+      deepClone(prop, obj[i]);
     } else {
       obj[i] = prop;
     }
@@ -374,7 +374,7 @@ function throttle(fn, threshhold) {
         fn.apply(context, args) //只执行一部分方法，这些方法是在某个时间段内执行一次
         start = curr
     } else {
-    //让方法在脱离事件后也能执行一次
+      //让方法在脱离事件后也能执行一次
       timeout = setTimeout(function(){
           fn.apply(context, args)
       }, threshhold);
