@@ -7,14 +7,18 @@ updated: 2018-06-20 19:20:28
 tags: JavaScript
 ---
 ## 设计模式的类别
+
 ### 创建型设计模式
+
 * 简单工厂模式（Simple Factory）
 * 工厂方法模式（Factory Method）
 * 抽象工厂模式（Abstract Factory）
 * 创建者模式（Builder）
 * 原型模式（Prototype）
 * 单例模式（Singleton）
+
 ### 结构型设计模式
+
 * 外观模式/门面模式（Facade门面模式）
 * 适配器模式（Adapter）
 * 代理模式（Proxy）
@@ -22,7 +26,9 @@ tags: JavaScript
 * 桥梁模式/桥接模式（Bridge）
 * 组合模式（Composite）
 * 享元模式（Flyweight）
-### 行为设计模式 
+
+### 行为设计模式
+
 * 模板方法模式（Template Method）
 * 观察者模式（Observer）
 * 状态模式（State）
@@ -44,6 +50,7 @@ tags: JavaScript
 行为型模式顾名思义，侧重于具体行为，所以概念中才会出现职责分配和算法通信等内容。  
 
 ### 设计原则
+
 开闭原则：对扩展开放，对修改关闭  
 里氏转换原则： 子类继承父类，单独完全可以运行  
 依赖倒转原则： 引用一个对象，如果这个对象有底层类型，直接引用底层类型  
