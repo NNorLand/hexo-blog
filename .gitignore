@@ -10,3 +10,4 @@ public/
 yarn.lock
 .npmignore
 .editorconfig
+**/.ipynb_checkpoints/
