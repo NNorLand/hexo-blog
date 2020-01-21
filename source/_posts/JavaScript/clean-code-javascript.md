@@ -1,11 +1,13 @@
 ---
 title: clean-code-javascript
 categories:
-  - uncategorized
+  - JavaScript
 date: 2020-01-21 17:13:30
 updated: 2020-01-21 17:13:30
-tags:
+tags: [JavaScript]
 ---
+> 转载  
+来自[alivebao/clean-code-js](https://github.com/alivebao/clean-code-js)  
 
 Original Repository: [ryanmcdermott/clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
 
