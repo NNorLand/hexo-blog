@@ -7,7 +7,6 @@ public/
 .deploy*/
 .idea
 .vscode
-yarn.lock
 .npmignore
 .editorconfig
 **/.ipynb_checkpoints/
