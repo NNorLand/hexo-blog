@@ -116,15 +116,9 @@ uglify:
 sitemap:
     path: sitemap.xml
 #发布
-# deploy:
-#   type: git
-#   repo: https://gitee.com/nnorland/hexo-blog.git
-#   branch: master
-#   message: blog update
 deploy:
-  type: rsync
-  host: 139.199.34.244
-  user: nnorland
-  root: /usr/share/nginx/html
-  ignore_errors: true
-  verbose: false
+  type: git
+  repo: git@github.com:NNorLand/hexo-blog.git
+  branch: main
+  message: blog update
+
