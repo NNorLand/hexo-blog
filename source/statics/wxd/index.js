@@ -1,16 +1,15 @@
 var VM = new Vue({
   el: '#app',
   data: {
+    problemAllNum: 20, //每轮需要答题数
     showanimation: false, //显示 答题页动画
     showQuestion: false, //显示 答题
     showQuestionEnd: false, //显示 答题结束
     currQuestionData: [], //本轮答题题库
     problem: '', //当前题目数据
     problemNumber: '', //当前题所答第N题
-    problemAllNum: 2, //每轮需要答题数
     chooseKey: [], //当前题选择的KEY
     rightLen: 0, //每轮答对的题数
-    scoreCanLucky: 80, //满多少分可抽奖
     ifShowErr: false, //显示 答错时提示正确答案
     ifNeedTime: 1, //0：不需要计时； 1：正计时； 2：每题答题限时倒计时（计时结束再进入下一题）； 3：每轮答题限时倒计时（计时结束不再进入下一题即答题结束）；
     baseTime: 10, //倒计时开始时间，秒
