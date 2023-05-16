@@ -1,16 +1,16 @@
 var VM = new Vue({
   el: '#app',
   data: {
+    learnMode: false,
+    problemAllNum: 20, //每轮需要答题数
     showanimation: false, //显示 答题页动画
     showQuestion: false, //显示 答题
     showQuestionEnd: false, //显示 答题结束
     currQuestionData: [], //本轮答题题库
     problem: '', //当前题目数据
     problemNumber: '', //当前题所答第N题
-    problemAllNum: 2, //每轮需要答题数
     chooseKey: [], //当前题选择的KEY
     rightLen: 0, //每轮答对的题数
-    scoreCanLucky: 80, //满多少分可抽奖
     ifShowErr: false, //显示 答错时提示正确答案
     ifNeedTime: 1, //0：不需要计时； 1：正计时； 2：每题答题限时倒计时（计时结束再进入下一题）； 3：每轮答题限时倒计时（计时结束不再进入下一题即答题结束）；
     baseTime: 10, //倒计时开始时间，秒
@@ -25,7 +25,13 @@ var VM = new Vue({
   watch: {},
   methods: {
     /***************** 答题相关功能 *****************/
-
+    onNumberChange(e) {
+      this.problemAllNum = e.target.value;
+    },
+    onModeChange(e) {
+      this.learnMode = e.target.checked;
+      this.ifNeedTime = !e.target.checked;
+    },
     // 返回至首页
     goIndex() {
       this.showQuestion = false;
@@ -73,9 +79,12 @@ var VM = new Vue({
       problem.right = problem.answer[0];
       problem.answer = problem.answer.sort(() => Math.random() - 0.5);
       this.problem = problem;
-      // console.log(this.problem);
-      console.log('当前是正确选项:' + this.problem.right);
+      console.log('当前正确选项:' + this.problem.right);
       this.showQuestion = true;
+      if (this.learnMode) {
+        this.chooseAnswer(this.problem.right);
+        this.submitAnswer();
+      }
       if (this.ifNeedTime == 2) {
         this.curTime = this.baseTime;
         this.timer ? clearInterval(this.timer) : '';
