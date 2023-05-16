@@ -1,6 +1,7 @@
 var VM = new Vue({
   el: '#app',
   data: {
+    learnMode: false,
     problemAllNum: 20, //每轮需要答题数
     showanimation: false, //显示 答题页动画
     showQuestion: false, //显示 答题
@@ -24,7 +25,13 @@ var VM = new Vue({
   watch: {},
   methods: {
     /***************** 答题相关功能 *****************/
-
+    onNumberChange(e) {
+      this.problemAllNum = e.target.value;
+    },
+    onModeChange(e) {
+      this.learnMode = e.target.checked;
+      this.ifNeedTime = !e.target.checked;
+    },
     // 返回至首页
     goIndex() {
       this.showQuestion = false;
@@ -72,9 +79,12 @@ var VM = new Vue({
       problem.right = problem.answer[0];
       problem.answer = problem.answer.sort(() => Math.random() - 0.5);
       this.problem = problem;
-      // console.log(this.problem);
-      console.log('当前是正确选项:' + this.problem.right);
+      console.log('当前正确选项:' + this.problem.right);
       this.showQuestion = true;
+      if (this.learnMode) {
+        this.chooseAnswer(this.problem.right);
+        this.submitAnswer();
+      }
       if (this.ifNeedTime == 2) {
         this.curTime = this.baseTime;
         this.timer ? clearInterval(this.timer) : '';

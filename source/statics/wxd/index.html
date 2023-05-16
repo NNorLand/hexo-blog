@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=750, user-scalable=no">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
@@ -12,7 +13,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-title" content="">
-    <title>答题 - 可配置每题倒计时自动答错 或 所有题答题结束总计时</title>
+    <title>无线电考试练习</title>
     <style>
         * {
             margin: 0px;
@@ -54,6 +55,10 @@
             align-items: center;
         }
 
+        .index input {
+            font-size: 50px;
+        }
+
         .base_btn {
             width: 420px;
             height: 80px;
@@ -91,6 +96,7 @@
         }
 
         .question_options li {
+            font-size: 30px;
             line-height: 42px;
             padding: 10px 20px 10px 60px;
             position: relative;
@@ -187,43 +193,43 @@
 
         /* 动画展示设置 */
         .question.showanimation .question_body {
-            -webkit-animation: flipToMax .6s ease-out both;
-            animation: flipToMax .6s ease-out both;
+            -webkit-animation: flipToMax .3s ease-out both;
+            animation: flipToMax .3s ease-out both;
         }
 
         .question.showanimation .question_number {
-            -webkit-animation: flipToMax .6s .2s ease-out both;
-            animation: flipToMax .6s .2s ease-out both;
+            -webkit-animation: flipToMax .3s .2s ease-out both;
+            animation: flipToMax .3s .2s ease-out both;
         }
 
         .question.showanimation .question_title {
-            -webkit-animation: fadeToTop .6s .2s ease-out both;
-            animation: fadeToTop .6s .2s ease-out both;
+            -webkit-animation: fadeToTop .3s .2s ease-out both;
+            animation: fadeToTop .3s .2s ease-out both;
         }
 
         .question.showanimation .question_options li:nth-child(1) {
-            -webkit-animation: fadeInMinToMax 1s .4s ease-out both;
-            animation: fadeInMinToMax 1s .4s ease-out both;
+            -webkit-animation: fadeInMinToMax .5s .2s ease-out both;
+            animation: fadeInMinToMax .5s .2s ease-out both;
         }
 
         .question.showanimation .question_options li:nth-child(2) {
-            -webkit-animation: fadeInMinToMax 1s .6s ease-out both;
-            animation: fadeInMinToMax 1s .6s ease-out both;
+            -webkit-animation: fadeInMinToMax .5s .3s ease-out both;
+            animation: fadeInMinToMax .5s .3s ease-out both;
         }
 
         .question.showanimation .question_options li:nth-child(3) {
-            -webkit-animation: fadeInMinToMax 1s .8s ease-out both;
-            animation: fadeInMinToMax 1s .8s ease-out both;
+            -webkit-animation: fadeInMinToMax .5s .8s ease-out both;
+            animation: fadeInMinToMax .5s .8s ease-out both;
         }
 
         .question.showanimation .question_options li:nth-child(4) {
-            -webkit-animation: fadeInMinToMax 1s 1s ease-out both;
-            animation: fadeInMinToMax 1s 1s ease-out both;
+            -webkit-animation: fadeInMinToMax .5s .5s ease-out both;
+            animation: fadeInMinToMax .5s .5s ease-out both;
         }
 
         .question.showanimation .base_btn {
-            -webkit-animation: flipToMax .8s 1s ease-out both;
-            animation: flipToMax .8s 1s ease-out both;
+            -webkit-animation: flipToMax .8s .5s ease-out both;
+            animation: flipToMax .8s .5s ease-out both;
         }
 
         @-webkit-keyframes flipToMax {
@@ -342,7 +348,18 @@
 
         <!-- 首页 -->
         <div v-if="!showQuestion" class="index">
-            <div @click="startDo" class="base_btn">开始答题</div>
+            <div>
+                <div>设置练习的题目数量</div>
+                <input style="border: 1px solid #666;" type="number" @change="onNumberChange" size="200">
+                <div style="margin: 40px 0;">
+                    <label for="learn-checkbox" style="display: flex;align-items: center;">
+                        <input id="learn-checkbox" style="width: 35px;height: 35px;" type="checkbox"
+                            @change="onModeChange">
+                        背题模式
+                    </label>
+                </div>
+                <div @click="startDo" class="base_btn">开始答题</div>
+            </div>
         </div>
 
         <!-- 答题页 -->
