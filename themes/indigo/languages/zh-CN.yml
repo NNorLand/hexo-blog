@@ -6,7 +6,7 @@ post:
   last_updated: "最后更新时间："
 
 footer:
-  license: '<a href="https://beian.miit.gov.cn/">京ICP备2022002509号-1</a>'
+  license: '<a href="/atom.xml">点击订阅</a>'
 
 tag:
   all: "全部"
